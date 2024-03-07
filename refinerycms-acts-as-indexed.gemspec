@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = %q{refinerycms-acts-as-indexed}
-  s.version           = %q{4.1.0}
+  s.version           = %q{4.1.1}
   s.description       = %q{An extension to handle the integration of Refinery CMS and ActsAsIndexed}
   s.summary           = %q{Refinery CMS ActsAsIndexed integration plugin}
   s.email             = %q{gems@p.arndt.io}
@@ -14,8 +14,7 @@ Gem::Specification.new do |s|
   s.files             = `git ls-files -- app/* lib/*`.split("\n")
 
   s.add_dependency    'refinerycms-core', ['>= 4.0.0', '< 5.0']
-  s.add_dependency    'acts_as_indexed', '~> 0.8'
-  s.add_dependency    'decorators', '~> 2.0'
+  s.add_dependency    'acts_as_indexed', '~> 0.9'
   s.add_dependency    'stringex', '~> 2.5'
 
   s.cert_chain  = ['certs/parndt.pem']

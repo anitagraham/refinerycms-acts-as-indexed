@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-git 'https://github.com/refinery/refinerycms', branch: 'master' do
+git 'https://github.com/anitagraham/refinerycms', branch: 'rails7' do
   gem 'refinerycms'
 
   group :development, :test do
@@ -10,12 +10,16 @@ git 'https://github.com/refinery/refinerycms', branch: 'master' do
   end
 end
 
+gem 'refinerycms-i18n', git: 'https://github.com/anitagraham/refinerycms-i18n', branch: 'Rails7'
+
 gem 'listen'
 
 # Database Configuration
 unless ENV['CI']
   gem 'activerecord-jdbcsqlite3-adapter', '>= 1.3.0.rc1', platform: :jruby
+  group :development, :test do
   gem 'sqlite3', platform: :ruby
+end
 end
 
 if !ENV['CI'] || ENV['DB'] == 'mysql'
@@ -32,9 +36,13 @@ if !ENV['CI'] || ENV['DB'] == 'postgresql'
   end
 end
 
+group :development, :test do
+  gem 'puma'
+  gem 'pry-rails'
+end
+
 group :test do
   gem 'launchy'
-  gem 'pry'
   gem 'selenium-webdriver', require: false
 end
 
